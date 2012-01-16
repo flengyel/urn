@@ -1,7 +1,7 @@
 Predator-prey dynamical systems are idealized descriptions of 
 behavior in the animal kingdom, an unforgiving domain from 
 which humans imagine their superior evolutionary development 
-and civilization offers them some protection.
+and civilization afford them some protection.
 
 In this simulation, there are two populations: the Proletariat and the 
 Bourgeois. The initial number of each class is set at the beginning of 
