@@ -85,8 +85,10 @@ game<-function(n,births,proles,bourgeois,r,nf=FALSE)
 
     print(sprintf("%f <= s <= %f, %f <= d <= %f",
 		 Prolemin,Prolemax,Bourgeoismin,Bourgeoismax));
-
-    df <- data.frame(Time=XVec,Prey=YMat[,1],Predator=YMat[,2]);
+    Time <- XVec
+    Prey <-YMat[,1]
+    Predator <- YMat[,2]
+    df <- data.frame(Time,Prey,Predator);
 
     ggplot(df,aes(Time)) + 
     geom_line(aes(y=Prey),colour="blue") + 

@@ -1,0 +1,20 @@
+Package: prole
+Type: Package
+Title: Bourgeois-Proletariat predator-prey simulation
+Version: 1.0
+Date: 2012-06-22
+Author: Florian Lengyel
+Maintainer: Florian Lengyel <florian.lengyel@gmail.com>
+Description: A predator-prey simulation in which the payoff
+ to one population, called the Bourgeois, is a fixed fraction
+ of the income of the other population, called the Proletariat,
+ whose income is a population-independent constant. Two members 
+ of the total population are selected uniformly at random. If 
+ both are Proletariat, the Proletariat population is increased 
+ by a fixed constant amount. If one is Proletariat and the other 
+ is Bourgeois, a fixed fraction of the Proletariat becomes Bourgeois. 
+ Finally, if both are Bourgeois, one of them dies and the other 
+ becomes Proletariat.
+License: GPL-2
+Depends:
+  ggplot2
