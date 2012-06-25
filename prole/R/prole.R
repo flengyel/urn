@@ -90,11 +90,14 @@ prole<-function(n,births,proles,bourgeois,r,nf=FALSE)
     Predator <- YMat[,2]
     df <- data.frame(XVec,Prey,Predator);
 
-    ggplot(df,aes(XVec)) + xlab("Time") + opts(legend.background=theme_rect()) +
+    ggplot(df,aes(XVec),stat="summary") + xlab("Time") + opts(legend.background=theme_rect()) +
     geom_line(aes(y=Prey, colour="Proletariat")) + 
     geom_line(aes(y=Predator, colour="Bourgeois")) +
+    geom_hline(yintercept=Bourgeoismin, colour="blue",alpha=0.5) +
+    annotate("text",x=mean(XVec),y=Bourgeoismin-5,label="Min Bourgeois",colour="blue",size=4) +
+    opts(title="Bourgeois Proletariat Simulation") +
     scale_color_manual("Legend",
          breaks=c("Proletariat", "Bourgeois"),
-         values=c("red", "blue")) +
+         values=c("red", "black")) +
 		ylab("Population");
 } # game
