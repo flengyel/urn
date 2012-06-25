@@ -89,14 +89,11 @@ prole<-function(n,births,proles,bourgeois,r,nf=FALSE)
     Prey <-YMat[,1]
     Predator <- YMat[,2]
     df <- data.frame(XVec,Prey,Predator);
-#    mf <- melt(df,id=c("Time"));
-#    ggplot(mf) + geom_line(aes(x=Time,y=value,colour=variable)) +
-#           scale_color_manual(values=c("red",blue"));
 
-    ggplot(df,aes(XVec)) + xlab("Time") +
+    ggplot(df,aes(XVec)) + xlab("Time") + opts(legend.background=theme_rect()) +
     geom_line(aes(y=Prey, colour="Proletariat")) + 
     geom_line(aes(y=Predator, colour="Bourgeois")) +
-    scale_color_manual("",
+    scale_color_manual("Legend",
          breaks=c("Proletariat", "Bourgeois"),
          values=c("red", "blue")) +
 		ylab("Population");
