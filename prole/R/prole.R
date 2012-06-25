@@ -21,8 +21,8 @@ options(error=utils::recover)
 
 prole<-function(n,births,proles,bourgeois,r,nf=FALSE)
 {
-    XVec <- array(0, c(n-1));
-    YMat <- array(0, c(n-1,2));
+    XVec <- array(0, c(n));
+    YMat <- array(0, c(n,2));
 
     BENEFIT <- births;
     Proletariat <- proles;    
@@ -32,8 +32,8 @@ prole<-function(n,births,proles,bourgeois,r,nf=FALSE)
     Bourgeoismin <- Bourgeois;
     Bourgeoismax <- Bourgeois;
 
-    XVec[0] <- 1;	
-    YMat[0,] <- c(Proletariat,Bourgeois);
+    XVec[1] <- 0;	
+    YMat[1,] <- c(Proletariat,Bourgeois);
 
     if ( r <= 0 || r >= 1)
     {
@@ -41,7 +41,7 @@ prole<-function(n,births,proles,bourgeois,r,nf=FALSE)
 	return;
     }
 
-    for ( k in 1:n-1 )
+    for ( k in 1:n )
     {
        # sample 2 without replacement from total population
        x<-sample(1:Proletariat+Bourgeois,2); 
