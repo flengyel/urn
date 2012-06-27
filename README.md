@@ -13,16 +13,15 @@ proportional to the population of the other class.
 The idea to define economic class dominance as a population-dependent 
 income transfer (as opposed to a fixed working wage) 
 from a dominant class to a dominated class was inspired by a New York   
-Times article of December 26, 2009, entitled "At Tiny Rates, 
-Saving Money Costs Investors." The Times reported that 
-"...risk-averse investors are effectively financing a second 
-bailout of financial institutions, many of which 
-have also raised fees and interest rates on credit cards."
+Times article of December 26, 2009, entitled [At Tiny Rates, 
+Saving Money Costs Investors](http://www.nytimes.com/2009/12/26/your-money/26rates.html). The Times reported that "...risk-averse investors are 
+effectively financing a second bailout of financial institutions, 
+many of which have also raised fees and interest rates on credit cards."
 William H. Gross of Pimco was quoted. "...a significant part 
 of the government’s plan to repair the financial system and 
 the economy is to pay savers nothing and allow damaged financial 
 institutions to earn a nice, guaranteed spread," he said. 
-[http://www.nytimes.com/2009/12/26/your-money/26rates.html].
+
 
 In this simulation, a population is partitioned into two classes
 called the Bourgeois and the Proletariat. The Bourgeois dominate 
