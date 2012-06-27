@@ -87,7 +87,7 @@ prole.plot<-function(df)
       geom_line(aes(y=Bourgeois, colour="Bourgeois")) +
       geom_hline(yintercept=bmin, colour="blue",alpha=0.5) +
  #     scale_y_continuous(limits=c(0,max(df$Proletariat,df$Bourgeois)), breaks=c(bmin)) +
-      annotate("text",x=xmean,bmin-1, label="Min Bourgeois",colour="blue",size=3) +
+      annotate("text",x=xmean,bmin-1, label=paste("min(Bourgeois) =",bmin),colour="blue",size=3) +
       opts(title="Bourgeois-Proletariat Predator-Prey Simulation") +
       scale_color_manual("Legend",
                           breaks=c("Proletariat", "Bourgeois"),
