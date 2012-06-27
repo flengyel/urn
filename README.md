@@ -12,7 +12,7 @@ proportional to the population of the other class.
 
 The idea to define economic class dominance as a population-dependent 
 income transfer (as opposed to a fixed working wage) 
-from one class to aanother was inspired by a New York Times 
+from one class to another was inspired by a New York Times 
 article of December 25, 2009, entitled "[At Tiny Rates, 
 Saving Money Costs Investors](http://www.nytimes.com/2009/12/26/your-money/26rates.html)." 
 The Times reported that "...risk-averse investors are 
