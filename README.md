@@ -25,8 +25,9 @@ institutions to earn a nice, guaranteed spread," he said.
 
 
 In this simulation, a population is partitioned into two classes
-called the Bourgeois and the Proletariat, who earn a fixed working
-wage.  The Bourgeois dominatethe Proletariat in the above sense. 
+called the Bourgeois, representing the banks, and the Proletariat, 
+representing the depositors, who earn a fixed working wage.  
+The Bourgeois dominate the Proletariat in the above sense. 
 Income in this simulation is identified with number of offspring.
 The payoff to the Proletariat  at each repetition of the game is a population-independent
 constant fixed for the entire simulation.
