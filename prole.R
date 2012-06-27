@@ -8,6 +8,20 @@ library(ggplot2)
 library(scales)
 options(error=utils::recover)
 
+# prolegomena to a class interface to the simulation
+# The simulations should keep a record of the parameters used
+# to define them. This can be used in the various display functions.
+# Currently I'm only passing a data frame.
+
+library(methods)
+setClass("prole",
+   representation(n="integer",
+                 births="integer",
+                 proles="integer",
+                 bourgeois="integer",
+                 r="numeric",
+                 df="data.frame"))
+
 # prole.sim(n,births,proles,bourgeois,r)
 # n - number of iterations
 # births - number of prole population offspring
@@ -79,7 +93,7 @@ prole.plot<-function(df)
 {
     bmin <- min(df$Bourgeois);
 
-    ggplot(df,aes(df$XVec)) + xlab("Time") + 
+    ggplot(df,aes(df$XVec)) + xlab("time") + 
       opts(legend.background=theme_rect()) +
       geom_line(aes(y=Proletariat, colour="Proletariat")) + 
       geom_line(aes(y=Bourgeois, colour="Bourgeois")) +
@@ -90,17 +104,15 @@ prole.plot<-function(df)
       scale_color_manual("Legend",
                           breaks=c("Proletariat", "Bourgeois"),
                           values=prole.cbbPalette) +
-		ylab("Population");
+		ylab("population");
 } # prole.plot
 
 prole.boxplot<-function(df)
 {
   ggplot(data=melt(subset(df,select=-c(1))), 
          aes(variable,value,fill=variable)) +
-  scale_fill_discrete("Class", breaks=c("Proletariat", "Bourgeois")) +
-  xlab("Class") + ylab("Population")  +
-# could not find function "guides" -- we're stuck with a redundant legend
-#  guides(fill=FALSE) + 
+  xlab("class") + ylab("population")  +
+  guides(fill=FALSE) + 
   geom_boxplot(); 
 }
 
@@ -111,7 +123,7 @@ prole.density<-function(df)
               variable="Class",
               value.name="population");
   cdf <- ddply(mdf, .(Class), summarise, population.mean=mean(value));
-  ggplot(data=mdf, aes(x=value,color=Class)) +
+  ggplot(data=mdf, aes(x=value,fill=Class)) +
   geom_vline(data=cdf, aes(xintercept=population.mean,color=Class),
            linetype="dashed",size=1) +
   xlab("population") +
