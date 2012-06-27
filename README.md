@@ -1,3 +1,4 @@
+## INTRO ##
 Predator-prey dynamical systems are idealized descriptions of 
 behavior in the animal kingdom, an unforgiving domain from 
 which humans imagine their superior evolutionary development 
@@ -37,6 +38,20 @@ by a constant amount. If one is Proletariat and the other
 is Bourgeois, a fixed fraction of the Proletariat becomes Bourgeois.
 Finally, if both are Bourgeois, one of them dies and the other
 becomes Proletariat.
+
+## Examples ##
+Load the source code `prole.R` with `source(prole.R)`.
+Create a `PROLE` object with `sim <- new("PROLE", 1000, 2, 30, 40, 0.031)`, for example.
+
+### Simulation plot ###
+Plot the simulation with `plot(sim)`. This will produce `ggplot2` output, such as the following.
+(https://github.com/flengyel/urn/raw/master/sampleplot.png)
+
+### Density plot ###
+The method `density(sim)` will produce a density plot. The dashed lines indicate distribution
+means. (https://github.com/flengyel/urn/raw/master/densityplot.png)
+
+## License ##
 
 (c) 2010-2012, Florian Lengyel florian.lengyel@gmail.com
 The text is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA-3.0)  license](http://creativecommons.org/licenses/by-nc-sa/3.0/).
