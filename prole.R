@@ -8,20 +8,6 @@ library(ggplot2)
 library(scales)
 options(error=utils::recover)
 
-# prolegomena to a class interface to the simulation
-# The simulations should keep a record of the parameters used
-# to define them. This can be used in the various display functions.
-# Currently I'm only passing a data frame.
-
-library(methods)
-setClass("prole",
-   representation(n="integer",
-                 births="integer",
-                 proles="integer",
-                 bourgeois="integer",
-                 r="numeric",
-                 df="data.frame"))
-
 # prole.sim(n,births,proles,bourgeois,r)
 # n - number of iterations
 # births - number of prole population offspring
@@ -43,7 +29,7 @@ prole.cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73",
                    "#F0E442", "#0072B2", "#D55E00", "#CC79A7");
 
 prole.cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", 
-                   "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+                   "#F0E442", "#0072B2", "#D55E00", "#CC79A7");
 
 prole.sim<-function(n,births,proles,bourgeois,r)
 {
@@ -53,8 +39,8 @@ prole.sim<-function(n,births,proles,bourgeois,r)
 
     if ( r <= 0 || r >= 1)
     {
-	print("Transfer rate r must be between 0 and 1");
-	return;
+	   print("Transfer rate r must be between 0 and 1");
+	   return(data.frame()); # return empty data frame
     }
 
     for ( k in 1:n )
@@ -72,8 +58,8 @@ prole.sim<-function(n,births,proles,bourgeois,r)
        } else
        { # Bourgeois/proles encounter
            bourgeois <- bourgeois+floor(r*proles);
-	       proles <- proles-floor(r*proles);
-	   }
+           proles <- proles-floor(r*proles);
+       }
     
        # update the new populations
 
@@ -92,14 +78,16 @@ prole.sim<-function(n,births,proles,bourgeois,r)
 prole.plot<-function(df)
 {
     bmin <- min(df$Bourgeois);
+    xmean <- mean(df$XVec);
+    XVec <- df$XVec
 
-    ggplot(df,aes(df$XVec)) + xlab("time") + 
+    ggplot(df,aes(XVec)) + xlab("time") + 
       opts(legend.background=theme_rect()) +
       geom_line(aes(y=Proletariat, colour="Proletariat")) + 
       geom_line(aes(y=Bourgeois, colour="Bourgeois")) +
       geom_hline(yintercept=bmin, colour="blue",alpha=0.5) +
-      annotate("text",x=mean(df$XVec),bmin-1,
-                label="Min Bourgeois",colour="blue",size=3) +
+ #     scale_y_continuous(limits=c(0,max(df$Proletariat,df$Bourgeois)), breaks=c(bmin)) +
+      annotate("text",x=xmean,bmin-1, label="Min Bourgeois",colour="blue",size=3) +
       opts(title="Bourgeois-Proletariat Predator-Prey Simulation") +
       scale_color_manual("Legend",
                           breaks=c("Proletariat", "Bourgeois"),
@@ -129,3 +117,53 @@ prole.density<-function(df)
   xlab("population") +
   geom_density(alpha=.3); 
 }
+
+# prolegomena to a class interface to the simulation
+# The simulations should keep a record of the parameters used
+# to define them. This can be used in the various display functions.
+# Currently I'm only passing a data frame.
+
+library(methods)
+setClass("PROLE",
+  representation(n="numeric",
+                 births="numeric",
+                 proles="numeric",
+                 bourgeois="numeric",
+                 r="numeric",
+                 df="data.frame"),
+  prototype(n=numeric(1),
+            births=numeric(1),
+            proles=numeric(1),
+            bourgeois=numeric(1),
+            r=numeric(1),
+            df=data.frame()))
+                 
+#setValidity("PROLE",function(object){
+#   retval <- NULL;
+#   message("Checking validity")
+#   if ( object@r <= 0 || object@r >= 1) 
+#      retval <- c(retval,"r must be between 0 and 1");
+#   if (is.null(retval)) return(TRUE) else return(retval)
+#})
+
+setMethod("initialize","PROLE",
+    function(.Object, n, births, proles, bourgeois, r) {
+      .Object@n <- n
+      .Object@births <- births
+      .Object@proles <- proles
+      .Object@bourgeois <- bourgeois
+      .Object@r <- r
+      .Object@df <- prole.sim(n, births, proles, bourgeois, r)
+      .Object})
+
+setMethod("plot", signature=signature(x="PROLE"),
+   function(x) {
+       prole.plot(x@df) })
+
+setMethod("boxplot", signature=signature(x="PROLE"),
+   function(x) {
+      prole.boxplot(x@df) })
+
+setMethod("density", signature=signature(x="PROLE"),
+   function(x) {
+      prole.density(x@df) })
