@@ -50,7 +50,7 @@ Plot the simulation with `plot(sim)`. This will produce `ggplot2` output, such a
 
 ### Density plot ###
 The method `density(sim)` will produce a density plot. The dashed lines indicate distribution
-means. [<img src="https://github.com/flengyel/urn/raw/master/densityplot.png"](https://github.com/flengyel/urn/raw/master/densityplot.png)
+means. [<img src="https://github.com/flengyel/urn/raw/master/densityplot.png">](https://github.com/flengyel/urn/raw/master/densityplot.png)
 
 ## License ##
 
