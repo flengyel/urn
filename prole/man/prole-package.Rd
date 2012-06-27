@@ -1,6 +1,5 @@
 \name{prole-package}
 \alias{prole-package}
-\alias{prole}
 \docType{package}
 \title{
 Bourgeois-Proletariat predator-prey simulation
@@ -33,6 +32,9 @@ Maintainer: Florian Lengyel <florian.lengyel@gmail.com>
 ~~ The author and/or maintainer of the package ~~
 }
 \keyword{ package }
+\keyword{ proletariat }
+\keyword{ bourgesois }
+\keyword{ predator-prey }
 \examples{
-game(1000,2,100,45,0.1)
+prole(1000,2,100,45,0.1)
 }
