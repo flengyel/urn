@@ -1,4 +1,4 @@
-## INTRO ##
+## Introduction ##
 Predator-prey dynamical systems are idealized descriptions of 
 behavior in the animal kingdom, an unforgiving domain from 
 which humans imagine their superior evolutionary development 
@@ -40,6 +40,7 @@ Finally, if both are Bourgeois, one of them dies and the other
 becomes Proletariat.
 
 ## Examples ##
+## Creating a simulation ##
 Load the source code `prole.R` with `source(prole.R)`.
 Create a `PROLE` object with `sim <- new("PROLE", 1000, 2, 30, 40, 0.031)`, for example.
 
