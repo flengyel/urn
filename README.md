@@ -51,7 +51,7 @@ Plot the simulation with `plot(sim)`. This will produce `ggplot2` output, such a
 [<img src="https://github.com/flengyel/urn/raw/master/sampleplot.png">](https://github.com/flengyel/urn/raw/master/sampleplot.png)
 
 ### Density plot ###
-The method `density(sim)` will produce a density plot. The dashed lines indicate distribution
+The method `density(sim)` will produce a density plot of the Bourgeois and Proletariat population distributions for the simulation. The color-coded dashed lines indicate distribution
 means. [<img src="https://github.com/flengyel/urn/raw/master/densityplot.png">](https://github.com/flengyel/urn/raw/master/densityplot.png)
 
 ## License ##
