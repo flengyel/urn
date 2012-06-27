@@ -40,8 +40,9 @@ Finally, if both are Bourgeois, one of them dies and the other
 becomes Proletariat.
 
 ## Examples ##
+Load the source code `prole.R` with `source('prole.R')`.
+
 ### Creating a simulation ###
-Load the source code `prole.R` with `source(prole.R)`.
 Create a `PROLE` object with `sim <- new("PROLE", 1000, 2, 30, 40, 0.031)`, for example.
 
 ### Simulation plot ###
