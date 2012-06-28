@@ -1,4 +1,4 @@
-## INTRO ##
+## Introduction ##
 Predator-prey dynamical systems are idealized descriptions of 
 behavior in the animal kingdom, an unforgiving domain from 
 which humans imagine their superior evolutionary development 
@@ -12,8 +12,7 @@ transfer of utility from the other class, such that the payoff is
 proportional to the population of the other class.  
 
 The idea to define economic class dominance as a population-dependent 
-income transfer (as opposed to a fixed working wage) 
-from one class to another was inspired by a New York Times 
+income transfer  from one class to another was inspired by a New York Times 
 article of December 25, 2009, entitled "[At Tiny Rates, 
 Saving Money Costs Investors](http://www.nytimes.com/2009/12/26/your-money/26rates.html)." 
 The Times reported that "...risk-averse investors are 
@@ -26,9 +25,11 @@ institutions to earn a nice, guaranteed spread," he said.
 
 
 In this simulation, a population is partitioned into two classes
-called the Bourgeois and the Proletariat. The Bourgeois dominate 
-the Proletariat in the above sense. The payoff to the Proletariat 
-at each repetition of the game is a population-independent
+called the Bourgeois, representing the banks, and the Proletariat, 
+representing the depositors, who earn a fixed working wage.  The 
+Bourgeois dominate the Proletariat in the above sense. 
+Income in this simulation is identified with number of offspring.
+The payoff to the Proletariat  at each repetition of the game is a population-independent
 constant fixed for the entire simulation.
 
 Each play of the repeated game proceeds as follows.  Two members
@@ -40,16 +41,18 @@ Finally, if both are Bourgeois, one of them dies and the other
 becomes Proletariat.
 
 ## Examples ##
-Load the source code `prole.R` with `source(prole.R)`.
-Create a `PROLE` object with `sim <- new("PROLE", 1000, 2, 30, 40, 0.031)`, for example.
+Load the source code `prole.R` into an `R` session with `source('prole.R')`.
+
+### Creating a simulation ###
+Create a `PROLE` object (called `sim` for definiteness) with `sim <- new("PROLE", 1000, 2, 30, 40, 0.031)`, for example.
 
 ### Simulation plot ###
 Plot the simulation with `plot(sim)`. This will produce `ggplot2` output, such as the following.
-(https://github.com/flengyel/urn/raw/master/sampleplot.png)
+[<img src="https://github.com/flengyel/urn/raw/master/sampleplot.png">](https://github.com/flengyel/urn/raw/master/sampleplot.png)
 
 ### Density plot ###
-The method `density(sim)` will produce a density plot. The dashed lines indicate distribution
-means. (https://github.com/flengyel/urn/raw/master/densityplot.png)
+The method `density(sim)` will produce a density plot of the Bourgeois and Proletariat population distributions for the simulation. The color-coded dashed lines indicate distribution
+means. [<img src="https://github.com/flengyel/urn/raw/master/densityplot.png">](https://github.com/flengyel/urn/raw/master/densityplot.png)
 
 ## License ##
 
