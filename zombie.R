@@ -3,9 +3,7 @@
 # This code is released under the GNU General Public License, version 2
 
 library(reshape)
-library(plyr)
 library(ggplot2)
-library(scales)
 library(methods)
 
 options(error=utils::recover)
@@ -42,7 +40,7 @@ setClass("zombie",
 # size humans+zombies.
 # Case 1: a human-human pairing increases humans by births
 # Case 2: a human-zombie pairing converts 100*r% humans to zombies
-# Case 3: a zombie-zombie kills both zombies and produces one human
+# Case 3: a zombie-zombie pairing kills one zombie
 
 .zombie.simulation<-function(n,births,humans,zombies,r)
 {
@@ -66,8 +64,8 @@ setClass("zombie",
        }
        else if ((humans+1 <= x[1]) && (humans+1 <= x[2]))
        { # zombie/zombie encounter
-     	   zombies <- zombies-2;  # one dies and the other is declasse
-           humans <- humans+1;
+     	   zombies <- zombies-1;  # one zombie dies
+           # humans <- humans+1;
        } else
        { # zombie/human encounter
            zombies <- zombies+floor(r*humans);
