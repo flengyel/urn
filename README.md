@@ -5,7 +5,7 @@ which humans imagine their superior evolutionary development
 and civilization afford them some protection.
 
 This simulation of a repeated game illustrates a mathematical notion 
-of economic class dominance within a population. A *repeated class-payoff game* is one in which a popolation players is partitioned into n classes. A move of the game is a selection of n players from the population; payoffs are to each class depending on the classes of the players. One class dominates another if,  at each repetition of the game, the payoff to the class is an asymmetric zero-sum  transfer of utility from the other class, proportional to the population of the other class.  
+of economic class dominance within a population assumed to be partitioned into classes.  One class dominates another if,  at each repetition of the game, the payoff to the class is an asymmetric zero-sum  transfer of utility from the other class, proportional to the population of the other class.  
 
 The idea to define economic class dominance as a population-dependent 
 income transfer  from one class to another was suggested by a New York Times 
