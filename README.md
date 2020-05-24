@@ -24,17 +24,17 @@ In this simulation, a population is partitioned into two classes
 called the Bourgeois, representing the banks, and the Proletariat, 
 representing the depositors, who earn a fixed working wage.  The 
 Bourgeois dominate the Proletariat in the above sense. 
-Income in this simulation is identified with number of offspring.
+Income in this simulation is identified with population: one person = one unit (one dollar).
 The payoff to the Proletariat  at each repetition of the game is a population-independent
 constant fixed for the entire simulation.
 
 Each play of the repeated game proceeds as follows.  Two members
 of the total population are selected uniformly at random. If
-both are Proletariat, the Proletariat population is increased
+both are Proletariat, the Proletariat population (income) is increased
 by a constant amount. If one is Proletariat and the other
-is Bourgeois, a fixed fraction of the Proletariat becomes Bourgeois.
+is Bourgeois, a fixed fraction of the Proletariat becomes Bourgeois (some of the Proles are eaten by the Bourgeois).
 Finally, if both are Bourgeois, one of them dies and the other
-becomes Proletariat.
+becomes Proletariat. That's life in the big city.
 
 ## Examples ##
 Load the source code `prole.R` into an `R` session with `source('prole.R')`.
